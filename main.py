@@ -6,7 +6,7 @@ from game_manager import GameManager
 from game_objects.ball import Ball
 from game_objects.bricks import create_bricks
 from game_objects.paddle import Paddle
-from settings import screen, WHITE, background_img, screen_height, screen_width, display_game_over_screen
+from settings import screen, WHITE, background_img, screen_height, screen_width
 
 font_size = 30
 font = pygame.font.SysFont('arial', font_size)
@@ -20,10 +20,10 @@ game_manager = GameManager(3, ball=ball, paddle=paddle, bricks=bricks)
 def display_end_game_message(game_won=False):
     screen.fill((0, 0, 0))  # Clear the screen
     message = "You've won the game! Press R to Restart or Q to Quit" if game_won else "Game Over. " \
-                                                                                                       "Try again? " \
-                                                                                                       "Press R to " \
-                                                                                                       "Restart or Q " \
-                                                                                                       "to Quit "
+                                                                                      "Try again? " \
+                                                                                      "Press R to " \
+                                                                                      "Restart or Q " \
+                                                                                      "to Quit "
     text = font.render(message, True, WHITE)
     text_rect = text.get_rect(center=(screen_width / 2, screen_height / 2))
     screen.blit(text, text_rect)
@@ -95,4 +95,3 @@ while running:
     pygame.time.Clock().tick(60)
 
 pygame.quit()
-
